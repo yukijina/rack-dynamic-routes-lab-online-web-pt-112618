@@ -9,12 +9,13 @@ binding.pry
       #req.path => "/items/Figs", req.path.split("/items/") => ["", "Figs"]
       
       item = @@items.find{|item| item.name == item_name}
-          resp.write "#{item.price}\n"
-          resp.status = 200
-        
+        if item.nil?
           resp.write "Item not found\n"
           resp.status = 400
-        
+        else  
+          resp.write "#{item.price}\n"
+          resp.status = 200
+        end
       
     else
       resp.write "Route not found\n"
