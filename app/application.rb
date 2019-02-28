@@ -8,7 +8,7 @@ class Application
       item_name = req.path.split("/items/").last
       #req.path => "/items/Figs", req.path.split("/items/") => ["", "Figs"]
       
-      @@items.each do |item|
+      item = @@items.find{|item| item.name == item_name}
         if item.name = item_name
           resp.write "#{item.price}\n"
           resp.status = 200
