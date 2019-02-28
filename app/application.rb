@@ -3,7 +3,7 @@ class Application
   def call(env)
     resp = Rack::Response.new 
     req = Rack::Request.new(env)
-#binding.pry
+binding.pry
     if req.path.match("/items")
       item_name = req.path.split("/items/").last
       #req.path => "/items/Figs", req.path.split("/items/") => ["", "Figs"]
