@@ -9,7 +9,6 @@ class Application
       #req.path => "/items/Figs", req.path.split("/items/") => ["", "Figs"]
       
       item = @@items.find{|item| item.name == item_name}
-        if item.name = item_name
           resp.write "#{item.price}\n"
           resp.status = 200
         else
